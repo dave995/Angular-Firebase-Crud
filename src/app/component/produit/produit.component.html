@@ -1,0 +1,221 @@
+
+<div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-white" id="sidebar-wrapper">
+        <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
+                class="fas fa-user-secret me-2"></i>Market</div>
+        <div class="list-group list-group-flush my-3">
+            <a [routerLink]="['/frontedashboard']" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                    class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+            <a  [routerLink]="['/dashboard']" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-project-diagram me-2"></i>Users</a>
+            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-chart-line me-2"></i>Analytics</a>
+            <a [routerLink]="['/categories']" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-paperclip me-2"></i>Categories</a>
+            <a  [routerLink]="['/produit']" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                    class="fas fa-gift me-2"></i>Products</a>
+            <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                    class="fas fa-power-off me-2"></i>Logout</a>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+            <div class="d-flex align-items-center">
+                <i class="fas fa-align-left primary-text fs-4 me-3" id="menu-toggle"></i>
+                <h2 class="fs-2 m-0">Produits</h2>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user me-2"></i>produit
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown"> 
+                            <li><a [routerLink]="['/frontedashboard']" class="dropdown-item" href="#">HOme</a></li>
+                            <li><a [routerLink]="['/dashboard']" class="dropdown-item" href="#">Profile</a></li>
+                            <li><a [routerLink]="['/categories']" class="dropdown-item" href="#">Categorie</a></li>
+                            <li><a [routerLink]="['/produit']" class="dropdown-item" href="#">Produit</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid px-4">
+            <div class="row g-3 my-2">
+                <div class="col-md-6">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <div>
+                            <h3 class="fs-2"></h3>
+                            <p class="fs-5">Products</p>
+                        </div>
+                        <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <div>
+                            <h3 class="fs-2">%25</h3>
+                            <p class="fs-5">Increase</p>
+                        </div>
+                        <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-5">
+                <h3 class="fs-4 mb-3">Recent Orders</h3>
+                 <div class="container">
+                    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+                        Click pour ajouter
+                      </button>
+                    <div class="row">
+                        <!-- Button trigger modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="card border-0 shadow p-3">
+                                        <div class="form-floating mb-3 tetx-center">
+                                            <h5 class="text-center text-warning">Ajouter produit</h5>
+                                        </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" id="produictionTitle" name="produictionTitle" [(ngModel)]="produit_title">
+                                                <label for="firstname">Produit</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input type="text" class="form-control" id="produictionPrix" name="produictionTitle"  [(ngModel)]="produit_prix">
+                                                <label for="lastName">Prix</label>
+                                            </div>
+                                            <div  class="form-floating mb-3">
+                                                <select class="form-select" aria-label="Default select example" [(ngModel)]="categori">
+                                                    <option selected>Selectionner la categorie</option>
+                                                    <option *ngFor="let categori of donneesList">{{categori.first_name}}</option>
+                                                </select>
+                                            </div>         
+                                            <button type="button" class="btn btn-outline-success" (click)="addProduiction()">Ajouter produit</button>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 mt-5">
+                          
+                        </div>
+                        <div class=" col-sm-12  mt-2">
+                            <h5 class="text-danger"> Liste de produit</h5>
+                            <div class="card-de-tableau">
+                                <div class="tableau">
+                                    <table class="table table-hover">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">Produit</th>
+                                            <th scope="col">Prix</th>  
+                                            <th scope="col">categorie</th> 
+                                            <th scope="col">Supprimer</th>
+                                            <th scope="col">Modifier</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr *ngFor="let produiction of produictionList">
+                                    
+                                            <td>{{produiction.produit_title}}</td>
+                                            <td>{{produiction.produit_prix}}</td>
+                                            <td>{{produiction.categori}}</td>
+                
+                                            <!-- <input *ngFor="let donnee of donneesList"/> -->
+                
+                                            <td>
+                                                <button class="btn btn-outline-danger" (click)="deleteProduiction(produiction)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            </td>
+                                            <button type="button" class="btn btn-primary icons" data-toggle="modal" data-target="#exampleModal" (click)="getAllModaluser(produiction)">
+                                                <i class="fas fa-edit"></i>
+                                              </button>
+                                          </tr>
+                                          
+                                        </tbody>
+                                       
+                                      </table>
+                                      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class=" col-sm-12  mt-5">
+                                                        <div class="card border-0 shadow p-3">
+                                                            <div class="form-floating mb-3 tetx-center">
+                                                                <h5 class="text-center text-warning">Modifier categorie</h5>
+                                                            </div>
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="firstName" name="firstname"
+                                                                    [(ngModel)]="produit_titl">
+                                                                <label for="firstname">Nom de categorie</label>
+                                                            </div>
+                                                            <div class="form-floating mb-3">
+                                                                <input type="text" class="form-control" id="lastName" name="lastName"
+                                                                    [(ngModel)]="produit_pri">
+                                                                <label for="lastName">Description</label>
+                                                            </div>
+                                                            <div  class="form-floating mb-3">
+                                                                <select class="form-select" aria-label="Default select example" [(ngModel)]="categori">
+                                                                    <option selected>Selectionner la categorie</option>
+                                                                    <option *ngFor="let categori of donneesList">{{categori.first_name}}</option>
+                                                                 </select>
+                                                             </div> 
+                                                            <button type="button" class="btn btn-outline-success" data-dismiss="modal" (click)="updateProduiction()">Ajouter
+                                                                categories</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                          
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                   
+                
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+   
+ 
