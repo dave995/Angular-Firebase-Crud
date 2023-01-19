@@ -9,8 +9,6 @@
                     class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
             <a  [routerLink]="['/dashboard']" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                     class="fas fa-project-diagram me-2"></i>Users</a>
-            <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
-                    class="fas fa-chart-line me-2"></i>Analytics</a>
             <a [routerLink]="['/categories']" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
                     class="fas fa-paperclip me-2"></i>Categories</a>
             <a  [routerLink]="['/produit']" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
@@ -47,7 +45,7 @@
                             <li><a [routerLink]="['/dashboard']" class="dropdown-item" href="#">Profile</a></li>
                             <li><a [routerLink]="['/categories']" class="dropdown-item" href="#">Categorie</a></li>
                             <li><a [routerLink]="['/produit']" class="dropdown-item" href="#">Produit</a></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li><a [routerLink]="['/login']" class="dropdown-item" href="#">Logout</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -14,7 +14,7 @@ const routes: Routes = [
    {path: '', redirectTo:'login', pathMatch:'full'},
   {path: 'login', component : LoginComponent},
   {path: 'dashboard', component : DashboardComponent},
-  {path: 'register', component : RegisterComponent},
+  {path: 'inscription', component : RegisterComponent},
   {path: 'varify-email', component : VarifyEmailComponent},
   {path: 'forgot-password', component : ForgotPasswordComponent},
   {path : 'file-upload', component:FileuploadComponent},
