@@ -18,7 +18,7 @@ export class AuthService {
         if(res.user?.emailVerified == true) {
           this.router.navigate(['dashboard']);
         } else {
-          this.router.navigate(['/varify-email']);
+          this.router.navigate(['/frontedashboard']);
         }
 
     }, err => {
