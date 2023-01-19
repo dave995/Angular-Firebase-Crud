@@ -16,7 +16,7 @@ export class AuthService {
         localStorage.setItem('token','true');
 
         if(res.user?.emailVerified == true) {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['frontedashboard']);
         } else {
           this.router.navigate(['/frontedashboard']);
         }
