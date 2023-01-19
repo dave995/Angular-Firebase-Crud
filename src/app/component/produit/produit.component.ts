@@ -51,7 +51,7 @@ export class ProduitComponent implements OnInit {
     this.produit_pri = produit.produit_prix
  
   }
-
+//recuperer les donnees du composant categorie dans le produit
   getAllDonnees(){
     this.data.getAllDonnees().subscribe(res => {
 
@@ -103,6 +103,8 @@ export class ProduitComponent implements OnInit {
      this.resetForm();
     
   }
+
+  //modifier produit
 
   updateProduiction() {
     try{
